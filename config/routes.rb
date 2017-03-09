@@ -1,5 +1,5 @@
 AListForOdin::Application.routes.draw do
-  get '/' => 'games#index'
+  root 'games#index'
 
   #user
   get '/users/new' => 'users#new', as: 'new_user'
