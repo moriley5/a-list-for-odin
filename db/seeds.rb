@@ -11,7 +11,6 @@ end
     email: Faker::Internet.email,
     username: Faker::Internet.user_name,
     password: "password",
-    password_confirmation: "password"
   }
   User.create!(user_info)
 end
