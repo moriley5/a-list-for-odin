@@ -82,4 +82,4 @@ production:
   <<: *default
   database: a_list_for_odin_production
   username: a_list_for_odin
-  password: <%= ENV['a_list_for_odin_DATABASE_PASSWORD'] %>
+  password:

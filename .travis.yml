@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.2
+  - 2.0.0p648
 env:
   - DB=pgsql
 
@@ -13,3 +13,7 @@ script:
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
+
+  test:
+  adapter: postgresql
+  database: travis_ci_test
