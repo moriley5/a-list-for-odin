@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: a_list_for_odin_development
+
+test:
+  <<: *default
+  database: a_list_for_odin_test
+
+production:
+  <<: *default
+  database: a_list_for_odin_development
