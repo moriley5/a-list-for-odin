@@ -1,1 +1,9 @@
+<h1>Welcome to A List For Odin</h1>
+<h3>The ultimate sorce for what your friends are playing</h3>
 
+<% @games.each do |each_game| %>
+  <div>
+    <%= each_game.title %>
+    <p><img src="<%= each_game.thumbnail %>" alt="game-thumbnail" height='75' width='75'></p>
+  </div>
+<% end %>

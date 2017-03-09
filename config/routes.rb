@@ -8,4 +8,7 @@ AListForOdin::Application.routes.draw do
   #sessions
   get '/sessions/new' => 'sessions#new', as: 'new_session'
   post '/sessions' => 'sessions#create'
+
+  #games
+  resources :games
 end
