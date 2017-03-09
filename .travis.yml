@@ -3,6 +3,14 @@ rvm:
   - 2.2
   - jruby
 env:
-  - DB=postgres
-  - SH=bash
-  - PACKAGE_VERSION="1.0.*"
+  - DB=pgsql
+
+services:
+  - postgresql
+
+script:
+  - bundle exec rake db:test:prepare
+
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
