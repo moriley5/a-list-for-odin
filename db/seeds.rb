@@ -1,7 +1,25 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'net/http'
+uri = URI("https://bgg-json.azurewebsites.net/collection/edwalter")
+@boardgamestring = Net::HTTP.get(uri)
+games = JSON.parse(@boardgamestring)
+games.each do |each_game|
+  Game.create!(title: each_game["name"], thumbnail: each_game["thumbnail"], image: each_game["image"], player_count_min: each_game["minPlayers"], player_count_max: each_game["maxPlayers"], playing_time: each_game["playingTime"])
+end
+
+15.times do
+  user_info = {
+    email: Faker::Internet.email,
+    username: Faker::Internet.user_name,
+    password: "password",
+    password_confirmation: "password"
+  }
+  User.create!(user_info)
+end
+
+10.times do
+  ownership_info = {
+    game_id: rand(1..100),
+    owner_id: rand(1..15)
+  }
+  Ownership.create!(ownership_info)
+end
