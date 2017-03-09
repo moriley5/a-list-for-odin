@@ -3,7 +3,7 @@
 
 
 <% @games.each do |each_game| %>
-  <div>
+  <div class="each-game-display">
     <%= link_to each_game.title, each_game %>
     <p><img src="<%= each_game.thumbnail %>" alt="game-thumbnail" height='75' width='75'>
     <% if current_user %>
