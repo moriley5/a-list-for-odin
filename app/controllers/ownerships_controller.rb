@@ -12,4 +12,11 @@ class OwnershipsController < ApplicationController
     end
   end
 
+  def destroy
+    @ownership = Ownership.find_by(owner_id: params[:owner_id], game_id: params[:game_id])
+    @ownership.destroy
+    redirect_to "/users/#{current_user.id}"
+  end
+
+
 end
