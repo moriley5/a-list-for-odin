@@ -4,4 +4,6 @@ class GameRating < ActiveRecord::Base
   belongs_to :game
 
   validates :rater_id, :game_id, presence: true
+
+
 end

@@ -13,6 +13,8 @@ AListForOdin::Application.routes.draw do
 
   #games
   resources :games
+  #ratings
+  post '/games/:id/game_ratings' => 'game_ratings#create', as: 'game_ratings'
 
   #ownerships
   resources :ownerships

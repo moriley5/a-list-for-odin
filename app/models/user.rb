@@ -32,4 +32,13 @@ class User < ActiveRecord::Base
     self.hashed_password = @password
   end
 
+  def has_rated(game_id)
+    game_rating = GameRating.find_by(game_id: game_id, rater_id: self.id)
+    if game_rating
+      return true
+    else
+      return false
+    end
+  end
+
 end
