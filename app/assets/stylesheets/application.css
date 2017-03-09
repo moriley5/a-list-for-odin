@@ -1,6 +1,20 @@
 body {
   background: linear-gradient(to right, white , #3BB9FF);
 }
+
+.game-image {
+  height: 50%;
+  width: 50%;
+}
+
+.each-game-display {
+  width: 150px;
+  height: 75px;
+  margin-top: 30px;
+  margin-right: 10px;
+  display: inline-block;
+  text-align: center;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
