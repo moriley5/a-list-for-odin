@@ -1,16 +1,20 @@
 language: ruby
 rvm:
-  - 2.0
+  - 2.2
+
 env:
   - DB=pgsql
 
 services:
-  - postgresql "9.5.2"
+  - postgresql
 
 script:
   - bundle exec rake db:test:prepare
 
 before_script:
   - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database travis_ci_test;' -U postgres
+  # - psql -c 'create database travis_ci_test;' -U postgres
 
+test:
+  adapter: postgresql
+  database: travis_ci_test
