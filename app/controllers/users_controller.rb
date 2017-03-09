@@ -1,13 +1,10 @@
 class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
-    p params
-    puts '*' * 10
     if @user.save
-      puts "if" * 10
+      session[:user_id] = @user.id
       redirect_to "/"
     else
-      puts "else" * 10
       render :new_user
     end
   end

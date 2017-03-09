@@ -12,4 +12,7 @@ AListForOdin::Application.routes.draw do
 
   #games
   resources :games
+
+  #ownerships
+  resources :ownerships
 end
