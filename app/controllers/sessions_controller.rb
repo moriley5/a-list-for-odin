@@ -1,4 +1,4 @@
-class SessionsController < ActionController::Base
+class SessionsController < ApplicationController
   def create
     if user = User.authenticate(session_params)
       session[:user_id] = user.id
@@ -7,6 +7,11 @@ class SessionsController < ActionController::Base
       @error = "Incorrect login"
       render :new_session
     end
+  end
+
+  def delete
+    session[:user_id] = nil
+    redirect_to "/"
   end
 
   private

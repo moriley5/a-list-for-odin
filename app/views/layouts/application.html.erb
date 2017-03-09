@@ -8,16 +8,17 @@
 </head>
 <body>
   <% if current_user %>
-  <a href="/">home</a>
-  <a href="/users/<%= current_user.id %>">user profile</a>
-  <form class="button" method="post" action="/sessions">
-    <input type="hidden" name="_method" value="delete">
-    <button id="logout-button" type="submit">Logout</button>
-  </form>
+    <a href="/">Home</a>
+    <a href="/users/<%= current_user.id %>">Profile</a>
+    <!-- <form class="button" method="post" action="/sessions">
+      <input type="hidden" name="_method" value="delete">
+      <button id="logout-button" type="submit">Logout</button>
+    </form> -->
+<%= link_to "Logout", :action => "delete", :controller => :sessions, :method => :delete %>
 <% else %>
-  <a href="/">home</a>
-  <a href="/sessions/new">login</a>
-  <a href="/users/new">register</a>
+  <a href="/">Home</a>
+  <a href="/sessions/new">Login</a>
+  <a href="/users/new">Register</a>
 <% end %>
 
 <%= yield %>
