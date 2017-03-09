@@ -1,0 +1,8 @@
+<h2>Hello, <strong><%= @user.username %></h2>
+<p>You have <%= @users_games.count %> games in your collection</p>
+<div>
+  <% @users_games.each do |each_game| %>
+  <%= link_to each_game.title, each_game %>
+    <p><img src="<%= each_game.thumbnail %>" alt="game-thumbnail" height='75' width='75'></p>
+  <% end %>
+</div>
