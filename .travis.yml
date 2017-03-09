@@ -9,7 +9,7 @@ services:
 
 script:
   # - bundle exec rake db:test:prepare
-  - bundle exec rake
+  - bundle exec rake --format documentation
 
 before_script:
   - cp config/database.yml.travis config/database.yml

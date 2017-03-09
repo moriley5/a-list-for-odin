@@ -13,4 +13,4 @@ test:
 
 production:
   <<: *default
-  database: dbc-final-project_developmen
+  database: dbc-final-project_development

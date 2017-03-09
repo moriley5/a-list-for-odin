@@ -6,7 +6,7 @@ describe User do
   describe "validates" do
     it "has a valid username" do
       user.valid?
-      expect(user.errors[:username]).to be_empty
+      expect(user.errors[:username]).not_to be_empty
     end
   end
 end
