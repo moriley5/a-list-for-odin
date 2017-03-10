@@ -6,8 +6,9 @@
   <div class="each-game-display">
     <%= link_to each_game.title, each_game %>
     <p><img src="<%= each_game.thumbnail %>" alt="game-thumbnail" height='75' width='75'>
-    <% if current_user %>
-    <%= button_to "Add game", {action: "create", controller: "ownerships", owner_id: current_user.id, game_id: each_game.id, remote: true}, {class: 'btn btn-small'} %></p>
+
+    <% if current_user && !current_user.owns_game?(each_game.id) %>
+      <%= button_to "Add game", {action: "create", controller: "ownerships", owner_id: current_user.id, game_id: each_game.id, remote: true}, {class: 'btn btn-small'} %></p>
     <% end %>
   </div>
 <% end %>

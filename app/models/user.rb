@@ -41,4 +41,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def owns_game?(game_id)
+    game_ownership = Ownership.find_by(game_id: game_id, owner_id: self.id)
+    if game_ownership
+      return true
+    else
+      return false
+    end
+  end
+
 end
