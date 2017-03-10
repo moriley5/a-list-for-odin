@@ -5,6 +5,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    @game_rating = GameRating.new
     @game = Game.find_by(id: params[:id])
   end
 

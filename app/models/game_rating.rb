@@ -5,5 +5,5 @@ class GameRating < ActiveRecord::Base
 
   validates :rater_id, :game_id, presence: true
 
-
+  VALUES = [5,4,3,2,1]
 end
