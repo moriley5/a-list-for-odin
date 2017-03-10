@@ -9,11 +9,15 @@ class Game < ActiveRecord::Base
 
   def calculate_average_rating
     ratings_of_game = []
-    self.ratings.each do |rating|
+    self.game_ratings.each do |rating|
       ratings_of_game << rating.value
     end
     if ratings_of_game.length < 1
-
-    ratings_of_game.reduce(0, :+)
+      @message = ["Be the first to rate this game"]
+    else
+      total = ratings_of_game.reduce(0, :+)
+      average = total/ratings_of_game.length
+    end
+    return average
   end
 end

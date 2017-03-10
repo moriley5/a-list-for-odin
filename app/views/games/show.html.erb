@@ -6,12 +6,13 @@
 <p>Maximum player count: <%= @game.player_count_max %></p>
 <% if logged_in? %>
     <%= button_to "Add game", {action: "create", controller: "ownerships", owner_id: current_user.id, game_id: @game.id, remote: true}, {class: 'btn btn-small'} %>
-    <% if current_user.has_rated(@game_id) %>
-      #show average
+
+    <% if current_user.has_rated(@game.id) == true %>
+      Average Rating: <%= @game.calculate_average_rating %>/5
     <% else %>
-      <%= form_for GameRating.new, url: {action: "create", controller: "game_ratings", rater_id: current_user.id, game_id: @game.id} do |f| %>
+      <%= form_for @game_rating do |f| %>
         <%= f.label "Rating: " %>
-        <%= f.select :value, [['5','5'],['4','4'],['3','3'],['2','2'],['1','1']] %>
+        <%= f.select :value, GameRating::VALUES %>
         <%= f.submit %>
       <% end %>
     <% end %>
