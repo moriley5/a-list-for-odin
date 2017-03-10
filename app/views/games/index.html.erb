@@ -1,6 +1,14 @@
-<h1 class="title-text">Welcome to A List For Odin</h1>
-<h3>The ultimate source for what your friends are playing</h3>
-
+<div class="title">
+  <h1 class="title-text">Welcome to A List For Odin</h1>
+  <h3>The ultimate source for what your friends are playing</h3>
+  <%= form_tag :_users, :method => 'get' do %>
+    <p class="friend-search">
+      <label>Find Friends by username: </label>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
+</div>
 <div class="game-list-full">
 <% @games.each do |each_game| %>
   <div class="each-game-display">
