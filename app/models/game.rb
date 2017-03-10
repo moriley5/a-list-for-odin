@@ -7,13 +7,4 @@ class Game < ActiveRecord::Base
 
   validates :title, :image, :thumbnail, :playing_time, :player_count_min, :player_count_max, presence: true
 
-  def calculate_average_rating
-    ratings_of_game = []
-    self.ratings.each do |rating|
-      ratings_of_game << rating.value
-    end
-    if ratings_of_game.length < 1
-
-    ratings_of_game.reduce(0, :+)
-  end
 end
