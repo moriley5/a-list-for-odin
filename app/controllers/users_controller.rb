@@ -10,8 +10,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: current_user.id)
+    @user = User.find_by(id: params[:id])
     @users_games = @user.games
+  end
+
+  def index
+    @users = User.search(params[:search])
   end
 
 

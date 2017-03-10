@@ -50,4 +50,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['username LIKE ?', "%#{search}%"])
+    else
+      @message = ["no users found"]
+      find(:all)
+    end
+  end
 end

@@ -1,8 +1,16 @@
-<h2>Hello, <strong><%= @user.username %></h2>
+<h2><%= @user.username %>'s Profile</h2>
 <p>You have <%= @users_games.count %> games in your collection</p>
-<div>
-  <% @users_games.each do |each_game| %>
+<% @users_games.each do |each_game| %>
+<div class="each-game-display">
   <%= link_to each_game.title, each_game %>
-    <p><img src="<%= each_game.thumbnail %>" alt="game-thumbnail" height='75' width='75'></p>
-  <% end %>
+  <p><img src="<%= each_game.thumbnail %>" alt="game-thumbnail" height='75' width='75'></p>
 </div>
+<% end %>
+
+<%= form_tag :_users, :method => 'get' do %>
+  <p>
+    <label>Find Finds by username: </label>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
