@@ -5,6 +5,7 @@ AListForOdin::Application.routes.draw do
   get '/users/new' => 'users#new', as: 'new_user'
   post '/users' => 'users#create'
   get '/users/:id' => 'users#show', as: 'user'
+  get '/users' => 'users#index', as: '_users'
 
   #sessions
   get '/sessions/new' => 'sessions#new', as: 'new_session'
