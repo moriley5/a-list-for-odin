@@ -1,6 +1,11 @@
 $(document).ready(function(){
   // $(".game-list-full").on("submit", ".add-btn", function(event){
   //   event.preventDefault();
-  //   console.log(this)
+  //   var $button = $(this)
+  //   $.ajax({
+  //     method: "POST",
+  //     url: $(this).action
+  //     console.log(url)
+  //   })
   // })
 })
