@@ -5,4 +5,5 @@ class Ownership < ActiveRecord::Base
 
   validates :owner_id, :game_id, presence: true
 
+
 end

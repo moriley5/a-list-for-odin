@@ -1,12 +1,11 @@
+<img class="game-image" src="<%=@game.image%>">
+<div class="game-information">
 <h1> <%= @game.title %></h1>
-<img src="<%=@game.image%>">
-<div>
-<p>Playing time: <%= @game.playing_time %></p>
-<p>Minimum player count: <%= @game.player_count_min %></p>
-<p>Maximum player count: <%= @game.player_count_max %></p>
+<h3>Playing time: <%= @game.playing_time %></h3>
+<h3>Player count: <%= @game.player_count_min %> - <%= @game.player_count_max %> </h3>
+
 <% if logged_in? %>
     <%= button_to "Add game", {action: "create", controller: "ownerships", owner_id: current_user.id, game_id: @game.id, remote: true}, {class: 'btn btn-small'} %>
-
     <% if current_user.has_rated(@game.id) == true %>
       Average Rating: <%= @game.calculate_average_rating %>/5
     <% else %>
@@ -16,8 +15,18 @@
         <%= f.submit %>
       <% end %>
     <% end %>
+  <%= form_for GameRating.new, url: {action: "create", controller: "game_ratings", rater_id: current_user.id, game_id: @game.id} do |f| %>
+  <%= f.label "Rating: " %>
+  <%= f.select :value, [['5','5'],['4','4'],['3','3'],['2','2'],['1','1']] %>
+  <%= f.submit "Add rating" %>
+<% end %><br>
+  <% if current_user && !current_user.owns_game?(params[:id]) %>
+    <span><%= button_to "Add game", {action: "create", controller: "ownerships", owner_id: current_user.id, game_id: @game.id, remote: true}, {class: 'btn btn-small'} %>
+  <% end %>
+  <% if current_user.owns_game?(params[:id]) %>
+    <%= button_to 'Remove game', { action: 'destroy', owner_id: current_user.id, game_id: @game.id, controller: "ownerships"}, method: :delete %></span>
+  <% end %>
 <% end %>
-
 </div>
 
 
