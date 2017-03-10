@@ -1,8 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Aclonica');
+
+h1 {
+  font-family: MedievalSharp;
+  font-size: 50px;
+  color: #D4AF37;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+h3 {
+  text-align: center;
+}
+
 body {
   background: linear-gradient(to right, white , #3BB9FF);
+  font-family: Aclonica;
+}
+
+.game-information {
+  text-align: center;
 }
 
 .game-image {
+  float: right;
   height: 50%;
   width: 50%;
 }
@@ -13,6 +37,19 @@ body {
   margin-top: 30px;
   margin-right: 10px;
   display: inline-block;
+  text-align: center;
+}
+
+.title-text {
+  font-family: MedievalSharp;
+  font-size: 60px;
+  color: #D4AF37;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
   text-align: center;
 }
 /*
