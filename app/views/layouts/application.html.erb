@@ -10,16 +10,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if current_user %>
-    <a href="/">Home</a>
-    <a href="/users/<%= current_user.id %>">Profile</a>
-<%= link_to "Logout", :action => "delete", :controller => :sessions, :method => :delete %>
-<% else %>
-  <a href="/">Home</a>
-  <a href="/sessions/new">Login</a>
-  <a href="/users/new">Register</a>
-<% end %>
-
+  <nav class="nav">
+    <% if current_user %>
+      <a href="/">Home</a>
+      <a href="/users/<%= current_user.id %>">Profile</a>
+      <%= link_to "Logout", :action => "delete", :controller => :sessions, :method => :delete %>
+    <% else %>
+      <a href="/">Home</a>
+      <a href="/sessions/new">Login</a>
+      <a href="/users/new">Register</a>
+    <% end %>
+  </nav>
 <%= yield %>
 
 </body>
