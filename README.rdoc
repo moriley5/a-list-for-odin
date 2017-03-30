@@ -11,6 +11,6 @@ For this simulated client project through Dev Bootcamp, I worked as a member of 
 
 ## Resources
 
-https://boardgamegeek.com/wiki/page/BGG_XML_API&redirectedfrom=XML_API#
+https://boardgamegeek.com/wiki/page/BGG_XML_API&redirectedfrom=XML_API
 
 https://bgg-json.azurewebsites.net/collection/edwalter
